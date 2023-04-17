@@ -1,0 +1,19 @@
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      name: webapp
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        name: webapp
+    spec:
+      containers:
+      - image: nginx
+        name: simple-webapp 
+        
